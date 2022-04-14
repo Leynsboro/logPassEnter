@@ -27,7 +27,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zsn-hn-wcd">
                                         <rect key="frame" x="0.0" y="54" width="294" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMu-mS-Cwl">
                                         <rect key="frame" x="0.0" y="108" width="294" height="17"/>
@@ -48,16 +48,39 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Login"/>
                                 <connections>
-                                    <action selector="enterButtonPress" destination="BYZ-38-t0r" eventType="touchUpInside" id="fRI-Sl-yvA"/>
+                                    <action selector="loginButtonPress" destination="BYZ-38-t0r" eventType="touchUpInside" id="IBi-rZ-96H"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LpC-Ng-mzr">
+                                <rect key="frame" x="55.5" y="486" width="303" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BiA-ls-LYU">
+                                        <rect key="frame" x="0.0" y="0.0" width="141.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Forgot username?"/>
+                                        <connections>
+                                            <action selector="forgotUserButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sa2-9W-P9N"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdT-eI-Q0M">
+                                        <rect key="frame" x="161.5" y="0.0" width="141.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Forgot password?"/>
+                                        <connections>
+                                            <action selector="forgotPasswordButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="67J-Gb-PGU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="96R-D5-J74" secondAttribute="trailing" constant="60" id="70S-pD-LDw"/>
                             <constraint firstItem="nky-26-4JI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="0.5" id="AHa-OV-ah0"/>
+                            <constraint firstItem="LpC-Ng-mzr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q84-OV-7eK"/>
                             <constraint firstItem="96R-D5-J74" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="QTZ-sb-vcj"/>
+                            <constraint firstItem="LpC-Ng-mzr" firstAttribute="top" secondItem="nky-26-4JI" secondAttribute="bottom" constant="20" id="iht-Aq-eCF"/>
                             <constraint firstItem="nky-26-4JI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kxQ-Sx-P9O"/>
                             <constraint firstItem="96R-D5-J74" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="u5B-eH-I5H"/>
                         </constraints>
@@ -67,7 +90,7 @@
                         <outlet property="errorLabel" destination="VMu-mS-Cwl" id="7ua-qm-eFk"/>
                         <outlet property="loginTF" destination="y8b-Vg-Dne" id="KdV-Ac-uNT"/>
                         <outlet property="passwordTF" destination="zsn-hn-wcd" id="MML-g3-Dwa"/>
-                        <segue destination="mf7-Xt-W6R" kind="show" identifier="cabinet" id="dfP-Jd-YAW"/>
+                        <segue destination="mf7-Xt-W6R" kind="presentation" identifier="cabinet" modalPresentationStyle="fullScreen" id="dfP-Jd-YAW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -77,7 +100,7 @@
         <!--WelcomeViewController-->
         <scene sceneID="b4A-3g-Gsv">
             <objects>
-                <viewController title="WelcomeViewController" id="mf7-Xt-W6R" sceneMemberID="viewController">
+                <viewController title="WelcomeViewController" id="mf7-Xt-W6R" customClass="WelcomeViewController" customModule="logPassEnter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tZb-tD-ElS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,7 +126,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q7C-C5-dmH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.56197725597455972" green="0.96238988637924194" blue="0.92908842598334418" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Vlx-I0-6Sn" firstAttribute="leading" secondItem="Q7C-C5-dmH" secondAttribute="leading" constant="60" id="IOg-FH-wQ6"/>
                             <constraint firstItem="QQg-x0-All" firstAttribute="top" secondItem="Vlx-I0-6Sn" secondAttribute="bottom" constant="70" id="Kac-0g-H2G"/>
@@ -113,6 +136,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cabinet" id="3HM-Sc-VL6"/>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="Vlx-I0-6Sn" id="vEc-JD-UV5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="he1-hr-Hxw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="qqR-az-Ute" userLabel="Exit" sceneMemberID="exit"/>
