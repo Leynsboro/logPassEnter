@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
 
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var loginTF: UITextField!
@@ -22,10 +22,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         errorLabel.text = ""
         loginTF.delegate = self
         passwordTF.delegate = self
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super .touchesBegan(touches, with: event)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,27 +39,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         checkForLogPass()
     }
     
-    @IBAction func forgotUserButton() {
-        remindUserOrPass(username)
+    @IBAction func forgotUserOrPassPressed(_ sender: UIButton) {
+        sender.tag == 0
+            ? showAlert(title: "Oops!", message: "Your usernamer is \(username)")
+            : showAlert(title: "Oops!", message: "Your password is \(password)")
     }
     
-    @IBAction func forgotPasswordButton() {
-        remindUserOrPass(password)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        switch textField {
-        case loginTF:
-            passwordTF.becomeFirstResponder()
-        default:
-            checkForLogPass()
-        }
-            return true
-    }
 }
 
-extension ViewController {
+extension LoginViewController {
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+        
     private func checkForLogPass() {
         guard loginTF.text == username, passwordTF.text == password else {
             errorLabel.text = "Неправильно введен логин или пароль"
@@ -73,11 +64,24 @@ extension ViewController {
         
         performSegue(withIdentifier: "cabinet", sender: nil)
     }
+}
+
+extension LoginViewController: UITextFieldDelegate {
     
-    private func remindUserOrPass(_ data: String) {
-        let alert = UIAlertController(title: "Reminder", message: "Your username or password is \(data)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK, thx", comment: "Default action"), style: .default))
-        self.present(alert, animated: true, completion: nil)
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case loginTF:
+            passwordTF.becomeFirstResponder()
+        default:
+            checkForLogPass()
+        }
+            return true
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+
 }
 
