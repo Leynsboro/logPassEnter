@@ -16,8 +16,6 @@ class LoginViewController: UIViewController {
     private let username = "User"
     private let password = "12345"
     
-    let user = User.getUser()
-    let ls = user.info.hobbies[0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
