@@ -146,10 +146,10 @@
             </objects>
             <point key="canvasLocation" x="2474" y="80"/>
         </scene>
-        <!--Photo-->
+        <!--PhotoViewController-->
         <scene sceneID="SG9-wM-LaP">
             <objects>
-                <viewController id="vPL-0g-77b" sceneMemberID="viewController">
+                <viewController title="PhotoViewController" id="vPL-0g-77b" customClass="PhotoViewController" customModule="logPassEnter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LcM-Xf-QBx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="3222" y="80"/>
         </scene>
-        <!--Something-->
+        <!--InfoViewController-->
         <scene sceneID="TND-xz-wMF">
             <objects>
-                <viewController id="Pv2-jV-uwl" sceneMemberID="viewController">
+                <viewController title="InfoViewController" id="Pv2-jV-uwl" customClass="InfoViewController" customModule="logPassEnter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W50-Pw-PfM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

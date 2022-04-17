@@ -16,6 +16,9 @@ class LoginViewController: UIViewController {
     private let username = "User"
     private let password = "12345"
     
+    let user = User.getUser()
+    let ls = user.info.hobbies[0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +34,11 @@ class LoginViewController: UIViewController {
         for viewController in viewControllers {
             if let welcomeVC = viewController as? WelcomeViewController {
                 welcomeVC.welcomeString = loginTF.text
+            } else if let photoVC = viewController as? PhotoViewController {
+                //
+            } else if let navigationVC = viewController as? UINavigationController {
+                let infoVC = navigationVC.topViewController as! InfoViewController
+                //
             }
         }
     }
