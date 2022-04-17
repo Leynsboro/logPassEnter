@@ -39,6 +39,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C1D080A280C94CB00D7C83C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D08F32807068F0090CCD5 /* Main.storyboard */,
+				4C2D08F8280706900090CCD5 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		4C1D080B280C94D700D7C83C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D08F12807068F0090CCD5 /* LoginViewController.swift */,
+				4C2D0905280832C60090CCD5 /* WelcomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4C1D080C280C94E000D7C83C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D08F6280706900090CCD5 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4C1D080D280C94E800D7C83C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4C2D08ED2807068F0090CCD5 /* AppDelegate.swift */,
+				4C2D08EF2807068F0090CCD5 /* SceneDelegate.swift */,
+				4C2D08FB280706900090CCD5 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		4C2D08E12807068F0090CCD5 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +94,10 @@
 		4C2D08EC2807068F0090CCD5 /* logPassEnter */ = {
 			isa = PBXGroup;
 			children = (
-				4C2D08ED2807068F0090CCD5 /* AppDelegate.swift */,
-				4C2D08EF2807068F0090CCD5 /* SceneDelegate.swift */,
-				4C2D08F12807068F0090CCD5 /* LoginViewController.swift */,
-				4C2D0905280832C60090CCD5 /* WelcomeViewController.swift */,
-				4C2D08F32807068F0090CCD5 /* Main.storyboard */,
-				4C2D08F6280706900090CCD5 /* Assets.xcassets */,
-				4C2D08F8280706900090CCD5 /* LaunchScreen.storyboard */,
-				4C2D08FB280706900090CCD5 /* Info.plist */,
+				4C1D080B280C94D700D7C83C /* ViewControllers */,
+				4C1D080A280C94CB00D7C83C /* Storyboards */,
+				4C1D080D280C94E800D7C83C /* App */,
+				4C1D080C280C94E000D7C83C /* Resources */,
 			);
 			path = logPassEnter;
 			sourceTree = "<group>";
@@ -295,7 +327,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 87898T57Q4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = logPassEnter/Info.plist;
+				INFOPLIST_FILE = logPassEnter/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -323,7 +355,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 87898T57Q4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = logPassEnter/Info.plist;
+				INFOPLIST_FILE = logPassEnter/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
