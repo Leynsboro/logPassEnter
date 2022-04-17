@@ -13,9 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    private let username = "User"
-    private let password = "12345"
-    
+    lazy var user = User.getUser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +29,14 @@ class LoginViewController: UIViewController {
         
         for viewController in viewControllers {
             if let welcomeVC = viewController as? WelcomeViewController {
-                welcomeVC.welcomeString = loginTF.text
+                welcomeVC.name = user.nameSurname.name
+                welcomeVC.surname = user.nameSurname.surname
             } else if let photoVC = viewController as? PhotoViewController {
-                //
+                photoVC.imageString = user.photo
             } else if let navigationVC = viewController as? UINavigationController {
                 let infoVC = navigationVC.topViewController as! InfoViewController
-                //
+                infoVC.info = user.info.aboutMe
+                infoVC.hobbies = user.info.hobbies
             }
         }
     }
@@ -53,8 +53,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func forgotUserOrPassPressed(_ sender: UIButton) {
         sender.tag == 0
-            ? showAlert(title: "Oops!", message: "Your usernamer is \(username)")
-            : showAlert(title: "Oops!", message: "Your password is \(password)")
+        ? showAlert(title: "Oops!", message: "Your usernamer is \(user.username)")
+        : showAlert(title: "Oops!", message: "Your password is \(user.password)")
     }
     
 }
@@ -68,7 +68,7 @@ extension LoginViewController {
     }
         
     private func checkForLogPass() {
-        guard loginTF.text == username, passwordTF.text == password else {
+        guard loginTF.text == user.username, passwordTF.text == user.password else {
             errorLabel.text = "Неправильно введен логин или пароль"
             passwordTF.text = ""
             return

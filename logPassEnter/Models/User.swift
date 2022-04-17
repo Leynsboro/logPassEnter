@@ -8,33 +8,38 @@
 struct User {
     let username: String
     let password: String
-    let nameSurname: Person
     let photo: String
+    let nameSurname: Person
     let info: Info
     
     static func getUser() -> User {
         User(
-            username: "User",
-            password: "12345",
+            username: "Grom",
+            password: "mya",
+            photo: "grom",
             nameSurname:
                 Person(
                     name: "Громмаш",
-                    surname: "Адский крик"),
-            photo: "path",
+                    surname: "Адский Крик"),
             info:
-                Info(aboutMe: "",
+                Info(aboutMe: """
+                         Я - нереально сладкий котенок. Мне сейчас всего 1 годик.
+                         Меня принесли к моему папе, но он был мне не рад :(
+                         Но так получилось, что со временем он полюбил меня больше всего.
+                         Я тоже его очень сильно люблю. Никогда бы не оставил его одного.
+                     """,
                      hobbies:
                         ["Грызть мебель",
                          "Какать не очень вкусно",
-                         "Вечно мяукать"]
+                         "Вечно мяукать"
+                        ]
                     )
         )
     }
     
-    
     static func getUsers() -> [User] {
         [
-        
+            //На будущее
         ]
     }
     
